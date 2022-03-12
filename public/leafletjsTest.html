@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+ 
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+ 
+ 
+    
+    <title>Leaflet JS test</title>
+</head>
+<body>
+    <div id="map"></div>
+
+    <style>
+        #map { height: 400px; width: 400px; }
+
+    </style>
+<script>
+    var map = L.map('map').setView([30.415927729495323, 77.96679368267777], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXl1c2hwYmgiLCJhIjoiY2wwZ3UxNWxmMDE3aDNvbzJnOWR0c3k1MyJ9.k8KDKms3lwtkl1jGv4QoyA', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 15,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'your.mapbox.access.token'
+}).addTo(map);
+
+var marker = L.marker([30.415927729495323, 77.96679368267777]).addTo(map);
+var marker2 = L.marker([30.412714400054732, 77.96725365856815]).addTo(map);
+var marker3 = L.marker([30.404709275563498, 77.96976693453013]).addTo(map);
+var marker4 = L.marker([30.399142248152913, 77.96922429535724]).addTo(map);
+
+</script>
+
+</body>
+</html>
