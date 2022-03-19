@@ -70,7 +70,7 @@ function getData(longitude,lattitude){
   // Step 5 -> return the JSON object *
 
   // let url = 'http://localhost:8080/location'
-  let url ='http://localhost:8080/location'
+  let url ='https://shrouded-garden-56590.herokuapp.com/location'
   let data = {
     'long': longitude,
     'latt': lattitude
