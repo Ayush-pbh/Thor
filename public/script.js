@@ -24,14 +24,34 @@ function activate(elem){
   // Event Listners
   document.getElementById("pot-trigger").addEventListener("click", function() {
     activate(0)
+    
+    document.getElementById('rdq-trigger').classList.add('inactive')
+    document.getElementById('pot-trigger').classList.remove('inactive')
+    
+    document.getElementsByClassName('m-pth')[0].classList.add('visible')
+    document.getElementsByClassName('m-rdq')[0].classList.remove('visible')
+    
+    
   })
   
   document.getElementById("rdq-trigger").addEventListener("click", function() {
     activate(1)
+    
+    document.getElementById('rdq-trigger').classList.remove('inactive')
+    document.getElementById('pot-trigger').classList.add('inactive')
+
+    document.getElementsByClassName('m-pth')[0].classList.remove('visible')
+    document.getElementsByClassName('m-rdq')[0].classList.add('visible')
   })
 
   document.getElementsByClassName('controls')[0].addEventListener("click", function() {
     l();
+  })
+  
+  document.getElementsByClassName('nav-trigger')[0].addEventListener("click", function() {
+    document.getElementsByClassName('nav-trigger')[0].classList.toggle('close')
+    document.getElementsByClassName('nav-trigger')[0].classList.toggle('open')
+    document.getElementsByClassName('navigation')[0].classList.toggle('open')
   })
 
 // UI goodies end here.
@@ -50,7 +70,7 @@ function getData(longitude,lattitude){
   // Step 5 -> return the JSON object *
 
   // let url = 'http://localhost:8080/location'
-  let url ='http://192.168.236.107/location'
+  let url ='http://localhost:8080/location'
   let data = {
     'long': longitude,
     'latt': lattitude
@@ -115,6 +135,7 @@ function l(){
   // } else {
   //   document.getElementById('potholes-map').innerHTML = "Geolocation is not supported by this browser."
   // }
+  //we will use the location of the device once everything sorts out
   GotUserLocation({coords:{'latitude':1,'longitude':2}})
 }
 function initMap(){
@@ -142,3 +163,9 @@ function plotData() {
     L.marker( latlng ).addTo(map);
   }
 }
+
+
+// mongodb
+/*
+mongodb+srv://yefj:<password>@cluster0.amxov.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+*/

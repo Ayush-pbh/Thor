@@ -23,15 +23,30 @@
 </head>
 <body>
     <div class="container">
-        <div class="navigation">
-          <span id='pot-trigger'>Potholes</span>
-          <span id='rdq-trigger'>Road Quality</span>
+        <div class="navigation ">
+            <div class="nav-trigger open">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="trigger-holder">
+                <div id='pot-trigger' class="">Potholes</div>
+                <div id='rdq-trigger' class="inactive">Road Quality</div>
+            </div>
+            <div class="holder">
+                <div class="menu m-pth visible">
+                    <div class="controls" id="strat-nav">Start Pothole Mapping 🌍</div>
+                    <div class="controls" id="mark-my-location">My Location []</div>
+                    <div class="controls" id="reload-data">Reload Data []</div>
+                </div>
+                <div class="menu m-rdq "></div>
+            </div>
         </div>
         
         <div class="potholes">
             <div id="potholes-map"><p class="text">Please Allow the location permissons and click on the start button</p></div>
             <div class="controls">
-                <p class="text">🌍</p>
+                <p class="text"></p>
             </div>
         </div>
         <div class="roadquality hidden"></div>  

@@ -4,21 +4,14 @@ const csv = require('csv-parser')
 const fs = require('fs')
 const results = [];
 
-fs.createReadStream('location-data.csv')
+fs.createReadStream('location-data-main.csv')
     .pipe(csv())
     .on('data', (data) => results.push(data))
     .on('end', () => {
     // console.log(results);
 });
 
-
-
-
-
-
-
-
-
+let myhardcodedlocation = [30.4136249,77.9729378]
 
 // SERVER
 
@@ -27,7 +20,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const router = express.Router()
-const PORT = 80
+const PORT = 8080
 
 app.use(express.json())
 app.use(express.static('public'))       //for static files like css js img
@@ -61,5 +54,9 @@ router.get('/', (req,res) => {
 app.use('/', router)
 app.listen(
     PORT,
-    () => console.log( `Server Ready at http://192.168.236.107:${PORT}`)
+    () => console.log( `Server Ready at http://localhost:${PORT}`)
 )
+
+
+
+// DATABSE

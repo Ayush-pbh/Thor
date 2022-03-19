@@ -1,0 +1,224 @@
+// Coolrs
+// F1F2EB       Level 1
+// 586BA4       Level 2
+// 324376       Level 3
+// 
+// Fonts
+// font-family: 'Fredoka', sans-serif;
+// font-family: 'Raleway', sans-serif;
+// 
+body{
+    margin:0px;
+    z-index: 0;
+    .container{
+        position: fixed;
+        height:100%;
+        width:100%;
+        background:grey;
+        z-index:1;
+        .navigation{
+            position: absolute;
+            background:#F1F2EB;
+            height:calc(50% - 40px);
+            width:calc(90% - 40px);
+            left:5%;
+            bottom:calc(40px - 50%);
+            z-index: 3;
+            border-radius: 13px 13px 0px 0px;
+            padding:20px;
+            box-shadow: 0px 3px 8px 0px #0006;
+            transition: opacity .5s ease,bottom .5s cubic-bezier(0.4, 0, 1, 1);
+            opacity: 0.5;
+            &.open{
+                opacity: 1;
+                bottom:0px;
+            }
+            .holder{
+                position: absolute;
+                height:calc(100% - 130px);
+                top:110px;
+                width:calc(100% - 40px);
+                // background:#c5c5c5;
+                overflow: hidden;
+                .menu{
+                    height: calc(100% - 20px);
+                    width: 100%;
+                    border-radius: 15px;
+                    transition: opacity .5s ease, right .5s ease, left .5s ease;
+                    position: absolute;
+                    padding-top:20px;
+                    &.m-pth{
+                        // background-color: #dbdbdb;
+                        left:calc(0px - 110%);
+                        opacity: 0;
+                        &.visible{
+                            opacity: 1;
+                            left:0px;
+                        }
+                        .controls{
+                            height:20px;
+                            width:calc(100% - 20px);
+                            background: #dbdbdb;
+                            margin-bottom:10px;
+                            border-radius: 12px;
+                            color: #111;
+                            font-family: 'Fredoka', sans-serif;
+                            font-weight: bold;
+                            // text-align: center;
+                            font-size: 17px;
+                            padding:10px;
+                            &:active{
+                                background-color: #324376;
+                                color:#fff;
+                            }
+                        }
+                        
+                    }
+                    &.m-rdq{
+                        background-color: pink;
+                        right:calc(0px - 110%);
+                        opacity: 0;
+                        &.visible{
+                            opacity: 1;
+                            right:0px;
+                            // left:calc(100% - 40px);
+                        }
+                    }
+                }
+            }
+            .nav-trigger{
+                height:50px;
+                width: 50px;
+                background: #c5c5c5;
+                position: absolute;
+                border-radius: 7px;
+                border: 1px dashed grey;
+                cursor: pointer;
+                transition:transform .5s ease;
+                // box-shadow: 0px 0px 10px 0px #0006;
+                &.open{
+                    transform:scale(1.2);
+                    left: calc(50% - 25px);
+                    top:-25px;
+                    div{
+                        height: 7px;
+                        width: 80%;
+                        margin-left:10%;
+                        background-color: #111;
+                        border-radius: 5px;
+                        position: absolute;
+                        transition: all .3s ease;
+                        &:nth-child(1){
+                            top:9px;
+                        }
+                        &:nth-child(2){
+                            top:21px;
+                        }
+                        &:nth-child(3){
+                            top:33px;
+                        }
+                    }
+                }
+                &.close{
+                    transform: scale(1);
+                    right:-15px;
+                    top:-15px;
+                    div{
+                        height: 7px;
+                        width: 90%;
+                        margin-left:5%;
+                        background-color: #111;
+                        border-radius: 5px;
+                        position: absolute;
+                        transition: all .3s ease;
+                        &:nth-child(1){
+                            top:21px;
+                            transform: rotate(45deg);
+                        }
+                        &:nth-child(2){
+                            top:21px;
+                            opacity: 0;
+                        }
+                        &:nth-child(3){
+                            top:21px;
+                            transform: rotate(-45deg);
+                        }
+                    }
+                }
+            }
+
+            .trigger-holder{
+                position: absolute;
+                top:50px;
+                height:40px;
+                width:calc(100% - 50px);
+                background:#c5c5c5;
+                border-radius: 14px;
+                padding:5px;
+                display: flex;
+                #pot-trigger{
+                    width:calc(50% - 2.5px);
+                    padding-top:8px;
+                    height:calc(100% - 8px);
+                    background:#324376;
+                    margin-right:2.5px;
+                    border-radius: 11px;
+                    color: #fff;
+                    font-family: 'Fredoka', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 20px;
+                    cursor: pointer;
+                    &.inactive{
+                        
+                        background-color: transparent;
+                        color:#111;
+                        // border:1px dashed grey;
+                        padding-top:6px;
+                    }
+                }
+                #rdq-trigger{
+                    cursor: pointer;
+                    border-radius: 11px;
+                    width:calc(50% - 2.5px);
+                    padding-top:8px;
+                    height:calc(100% - 8px);
+                    background:#324376;
+                    margin-left: 2.5px;
+                    color: #fff;
+                    font-family: 'Fredoka', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 20px;
+                    &.inactive{
+                        background-color: transparent;
+                        color:#111;
+                        // border:1px dashed grey;
+                        padding-top:6px;
+                    }
+                }
+            }
+        }
+        .potholes, .roadquality{
+            z-index: 2;
+            position: absolute;
+            height:100%;
+            width:100%;
+            background: rgb(116, 116, 116);
+            top:0px;
+            left:0px;
+            &.hidden{
+                display:none;
+            }
+        }
+        .potholes{
+            #potholes-map{
+                width:100%;
+                height:100vh;
+            }
+        }
+        .roadquality{
+            background:pink;
+        }
+    }
+}
